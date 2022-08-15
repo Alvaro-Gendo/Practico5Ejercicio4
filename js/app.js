@@ -1,6 +1,6 @@
 function obtenerHora() {
   let fechaActual = new Date();
-    
+
   let diaSemanas = [
     "Domingo",
     "Lunes",
@@ -29,7 +29,9 @@ function obtenerHora() {
   let fecha = document.querySelector("#fecha");
 
   fecha.innerHTML = `${diaSemanas[fechaActual.getDay()]} 
-  ${fechaActual.getDate()} de ${ meses[fechaActual.getMonth()]} del ${fechaActual.getFullYear()}`;
+  ${fechaActual.getDate()} de ${
+    meses[fechaActual.getMonth()]
+  } del ${fechaActual.getFullYear()}`;
 
   let parrafoHora = document.querySelector("#hora");
 
@@ -38,22 +40,22 @@ function obtenerHora() {
     segundos = "0" + segundos;
   }
 
-  let minutos = fechaActual.getMinutes()
-  if (minutos < 10 ){
+  let minutos = fechaActual.getMinutes();
+  if (minutos < 10) {
     minutos = "0" + minutos;
   }
-  let hora = fechaActual.getHours()
-  if (hora < 10 ){
+  let hora = fechaActual.getHours();
+  if (hora < 10) {
     hora = "0" + hora;
   }
- let horaDia = ""
- if (horaDia < 12){
-    horaDia = "am"
- }else{
-    horaDia = "pm"
- }
+  let horaDia = "";
+  if (horaDia > 12) {
+    horaDia = "am";
+  } else {
+    horaDia = "pm";
+  }
   parrafoHora.innerHTML = `${hora}:${minutos}:${segundos} ${horaDia}`;
 }
 
 
-setInterval(obtenerHora, 1000)
+setInterval(obtenerHora, 1000);
